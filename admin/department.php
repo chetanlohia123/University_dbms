@@ -1,5 +1,6 @@
 <?php
 include "../config/db.php";
+include "../config/session.php";
 ?>
 
 <!DOCTYPE html>
@@ -37,12 +38,13 @@ include "../config/db.php";
         <tr class="table-header">
             <th>Department ID</th>
             <th>Department Name</th>
+            <th>HOD Name</th>
             <th>HOD Email</th>
             <th>HOD Phone</th>
             <th>Actions</th>
         </tr>
         <?php
-        $sql = "SELECT d.dept_id, d.dept_name, h.email, h.phone 
+        $sql = "SELECT d.dept_id, d.dept_name, h.hod_name, h.email, h.phone 
                 FROM Department d 
                 LEFT JOIN HOD h ON d.hod_id = h.hod_id";
         $result = $conn->query($sql);
@@ -51,6 +53,7 @@ include "../config/db.php";
             echo "<tr class='table-row'>
                 <td>{$row['dept_id']}</td>
                 <td>{$row['dept_name']}</td>
+                <td>{$row['hod_name']}</td>
                 <td>{$row['email']}</td>
                 <td>{$row['phone']}</td>
                 <td>

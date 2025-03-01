@@ -3,7 +3,7 @@ session_start();
 include "../config/db.php";
 
 // Check if admin is logged in
-if (!isset($_SESSION['admin'])) {
+if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
     exit();
 }
