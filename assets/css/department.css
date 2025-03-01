@@ -1,0 +1,78 @@
+body {
+    background-color: #f3f4f6;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.btn-submit {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #1e40af;
+}
+
+.table-container {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.table-header {
+    background-color: #e5e7eb;
+    font-weight: 600;
+}
+
+.table-row {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.delete-link {
+    color: red;
+    text-decoration: none;
+}
+
+.edit-link {
+    color: blue;
+    text-decoration: none;
+}
