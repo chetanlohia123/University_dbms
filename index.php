@@ -8,6 +8,9 @@ use PHPMailer\PHPMailer\Exception;
 
 $notification = "";
 
+// Debug: Check session status
+echo "<!-- Session admin: " . (isset($_SESSION['admin']) ? "set" : "not set") . " -->";
+
 // Function to generate OTP
 function generateOTP() {
     return str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
@@ -84,10 +87,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["verify_login_otp"])) {
         exit();
     } else {
         $notification = "❌ Invalid or expired OTP! Please try again.";
-        unset($_SESSION['pending_login_email']); // Reset on invalid OTP
+        unset($_SESSION['pending_login_email']);
         $stmt = $conn->prepare("DELETE FROM otp_verification WHERE email=?");
         $stmt->bind_param("s", $email);
-        $stmt->execute(); // Clean up invalid OTP
+        $stmt->execute();
     }
 }
 
@@ -143,11 +146,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["verify_register_otp"])
         }
     } else {
         $notification = "❌ Invalid or expired OTP! Please try again.";
-        unset($_SESSION['pending_register_email']); // Reset on invalid OTP
-        unset($_SESSION['pending_register_name']);  // Reset on invalid OTP
+        unset($_SESSION['pending_register_email']);
+        unset($_SESSION['pending_register_name']);
         $stmt = $conn->prepare("DELETE FROM otp_verification WHERE email=?");
         $stmt->bind_param("s", $email);
-        $stmt->execute(); // Clean up invalid OTP
+        $stmt->execute();
     }
 }
 ?>
@@ -173,6 +176,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["verify_register_otp"])
         <p class="text-xl md:text-2xl mb-8 text-gray-300 text-center max-w-2xl">
             Streamline your university management with our intuitive platform
         </p>
+        <!-- Debug: Force buttons to show temporarily -->
+        <div class="space-x-4 flex flex-col sm:flex-row gap-4">
+            <button onclick="openPopup('login-popup')" class="btn btn-blue">Login</button>
+            <button onclick="openPopup('register-popup')" class="btn btn-green">Register</button>
+        </div>
+        <!-- Original conditional version (uncomment after testing) -->
         <?php if(!isset($_SESSION['admin'])): ?>
             <div class="space-x-4 flex flex-col sm:flex-row gap-4">
                 <button onclick="openPopup('login-popup')" class="btn btn-blue">Login</button>
