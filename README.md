@@ -1,10 +1,10 @@
 📂 University_dbms/
 │── 📂 assets/             # Static assets (CSS, JS, images)
 │   │── css/              
-│   │   ├── global.css     # Global styles
+│   │   ├── department.css   
 │   │   ├── login.css      # Login page styles
 │   │   ├── dashboard.css  # Dashboard styles
-│   │   ├── admin.css      # Admin management styles
+│   │   ├── style.css      # Admin management styles
 │   │── js/               
 │   │   ├── scripts.js     # Optional JavaScript for UI
 │   │── images/           # Logos, icons, and other images
@@ -27,6 +27,8 @@
 │   │── faculty.php       # Manage faculty (Add, View, Edit, Delete)
 │   │── student.php       # Manage students (Add, View, Edit, Delete)
 │   │── manage_admins.php # Manage Admins (Super Admin Only)
+│   │── register.php
+│   │── reset_password.php
 │   │── logout.php        # Logout page
 │
 │── 📂 actions/           # Database Operations (Insert, Update, Delete)

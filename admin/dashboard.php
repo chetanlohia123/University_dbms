@@ -4,7 +4,7 @@ include "../config/db.php";
 
 // Restrict access to admin only
 if (!isset($_SESSION['admin'])) {
-    header("Location: login.php");
+    header("Location: ../index.php");
     exit();
 }
 
@@ -91,7 +91,7 @@ $recent_courses = $conn->query("SELECT course_name FROM Course ORDER BY course_i
         </div>
 
         <!-- Logout Button -->
-        <a href="../actions/logout.php" class="logout-btn">🚪 Logout</a>
+        <a href="logout.php" class="logout-btn">🚪 Logout</a>
     </div>
 </body>
 </html>
